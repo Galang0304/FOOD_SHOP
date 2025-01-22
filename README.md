@@ -78,7 +78,7 @@ lib/
 
 | Beranda | Favorit | Keranjang | Profil |
 |---------|---------|-----------|---------|
-| ![Home](assets/screenshots/home.png) | ![Favorites](assets/screenshots/favorites.png) | ![Cart](assets/screenshots/cart.png) | ![Profile](assets/screenshots/profile.png) |
+| ![Home](assets/screenshots/home.png) | ![Favorites](assets/screenshots/favorit.png) | ![Cart](assets/screenshots/keranjang.png) | ![Profile](assets/screenshots/profile.png) |
 
 ## 🎯 Fitur Mendatang
 
