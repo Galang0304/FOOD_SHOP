@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-import '../widgets/empty_page.dart';
+import 'favorite_page.dart';
+import 'cart_page.dart';
+import 'profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -12,122 +14,87 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  Widget _buildPage() {
-    switch (_selectedIndex) {
-      case 0:
-        return const HomePage();
-      case 1:
-        return const EmptyPage(
-          icon: Icons.favorite_rounded,
-          title: 'Daftar Favorit Kosong',
-          subtitle: 'Anda belum menambahkan makanan favorit',
-        );
-      case 2:
-        return const EmptyPage(
-          icon: Icons.shopping_cart_rounded,
-          title: 'Keranjang Kosong',
-          subtitle: 'Anda belum menambahkan makanan ke keranjang',
-        );
-      case 3:
-        return EmptyPage(
-          icon: Icons.person_rounded,
-          title: 'Profil Pengguna',
-          subtitle: 'Silakan login untuk melanjutkan',
-          action: ElevatedButton.icon(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text('Fitur login belum tersedia'),
-                  behavior: SnackBarBehavior.floating,
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              );
-            },
-            icon: const Icon(Icons.login_rounded),
-            label: const Text('Login'),
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-            ),
-          ),
-        );
-      default:
-        return const HomePage();
-    }
-  }
+  final List<Widget> _pages = [
+    const HomePage(),
+    const FavoritePage(),
+    const CartPage(),
+    const ProfilePage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text(
-          '🍽️ Food Shop',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Text(
+                '🍽️',
+                style: TextStyle(fontSize: 24),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Text(
+              'Food Shop',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                color: Theme.of(context).colorScheme.primary,
+                letterSpacing: 1,
+              ),
+            ),
+          ],
         ),
         actions: [
           Stack(
             children: [
-              IconButton(
-                icon: const Icon(Icons.shopping_cart, size: 28),
-                onPressed: () {
-                  setState(() {
-                    _selectedIndex = 2; // Pindah ke halaman keranjang
-                  });
-                },
-              ),
-              Positioned(
-                right: 8,
-                top: 8,
-                child: Container(
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.error,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Theme.of(context).colorScheme.error.withOpacity(0.3),
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
+              Container(
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.shopping_cart_rounded,
+                    size: 24,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
-                  constraints: const BoxConstraints(
-                    minWidth: 16,
-                    minHeight: 16,
-                  ),
-                  child: const Text(
-                    '0',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                  onPressed: () {
+                    setState(() {
+                      _selectedIndex = 2;
+                    });
+                  },
                 ),
               ),
             ],
           ),
         ],
       ),
-      body: _buildPage(),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Theme.of(context).colorScheme.primary.withOpacity(0.05),
+            ],
+          ),
+        ),
+        child: _pages[_selectedIndex],
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
@@ -139,32 +106,72 @@ class _MainPageState extends State<MainPage> {
         child: ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
           child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded),
+                icon: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 0 
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                      : Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.home_rounded),
+                ),
                 label: 'Beranda',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_rounded),
+                icon: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 1
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                      : Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.favorite_rounded),
+                ),
                 label: 'Favorit',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_rounded),
+                icon: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 2
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                      : Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.shopping_cart_rounded),
+                ),
                 label: 'Keranjang',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_rounded),
+                icon: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == 3
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                      : Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.person_rounded),
+                ),
                 label: 'Profil',
               ),
             ],
             currentIndex: _selectedIndex,
             selectedItemColor: Theme.of(context).colorScheme.primary,
-            unselectedItemColor: Colors.grey,
+            unselectedItemColor: Colors.grey[400],
             showUnselectedLabels: true,
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.white,
             elevation: 0,
-            onTap: _onItemTapped,
+            onTap: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
           ),
         ),
       ),

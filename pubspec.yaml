@@ -92,8 +92,11 @@ flutter:
     - assets/images/mie_goreng.jpg
     - assets/images/sate_ayam.jpg
     - assets/images/gado_gado.jpg
+    - assets/images/sop_ayam.jpg
+    - assets/images/nasi_kuning.jpg
+    - assets/images/minuman_kopi.jpg
     - assets/screenshots/
     - assets/screenshots/home.png
-    - assets/screenshots/favorites.png
-    - assets/screenshots/cart.png
+    - assets/screenshots/favorit.png
+    - assets/screenshots/keranjang.png
     - assets/screenshots/profile.png

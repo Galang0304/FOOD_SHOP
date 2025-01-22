@@ -36,17 +36,45 @@ class FoodRepository {
       imageUrl: 'assets/images/gado_gado.jpg',
       rating: 4.4,
     ),
+    const FoodItem(
+      name: 'Sop Ayam',
+      description: 'Sop ayam dengan sayuran segar',
+      price: 15000,
+      imageUrl: 'assets/images/sop_ayam.jpg',
+      rating: 4.2,
+    ),
+    const FoodItem(
+      name: 'Nasi Kuning',
+      description: 'Nasi kuning dengan ayam, telur, dan sayuran',
+      price: 18000,
+      imageUrl: 'assets/images/nasi_kuning.jpg',
+      rating: 4.6,
+    ),
+    const FoodItem(
+      name: 'Minuman Kopi',
+      description: 'Minuman dingin dengan susu dan kopi',
+      price: 10000,
+      imageUrl: 'assets/images/minuman_kopi.jpg',
+      rating: 4.8,
+    ),
   ];
 
   // Getter untuk mendapatkan semua makanan
-  List<FoodItem> getAllFoodItems() => _foodItems;
+  List<FoodItem> getAllFoodItems() {
+    print('DEBUG: Mengambil semua item makanan');
+    print('DEBUG: Jumlah item: ${_foodItems.length}');
+    return _foodItems;
+  }
 
   // Method untuk mencari makanan berdasarkan nama
   List<FoodItem> searchFoodItems(String query) {
-    return _foodItems.where((item) =>
+    print('DEBUG: Mencari makanan dengan query: $query');
+    final results = _foodItems.where((item) =>
       item.name.toLowerCase().contains(query.toLowerCase()) ||
       item.description.toLowerCase().contains(query.toLowerCase())
     ).toList();
+    print('DEBUG: Hasil pencarian: ${results.length} item');
+    return results;
   }
 
   // Method untuk mendapatkan makanan berdasarkan rating minimal
