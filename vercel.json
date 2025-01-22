@@ -1,15 +1,10 @@
 {
   "version": 2,
+  "framework": "flutter",
+  "buildCommand": "flutter pub get && flutter build web",
+  "outputDirectory": "build/web",
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "builds": [
-    {
-      "src": "build/web/**",
-      "use": "@vercel/static"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 } 
