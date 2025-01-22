@@ -99,7 +99,7 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 
 ## 👨‍💻 Pengembang
 
-- **Nama Anda** - *Initial work* - [GitHub Profile](https://github.com/username)
+- **Andi Arya Galang** - *Initial work* - [GitHub Profile](https://github.com/andiarya)
 
 ## 🙏 Pengakuan
 
@@ -109,10 +109,10 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 
 ## 📞 Kontak
 
-Jika Anda memiliki pertanyaan atau saran, silakan hubungi kami di:
-- Email: your.email@example.com
-- Website: https://your-website.com
-- Twitter: [@yourusername](https://twitter.com/yourusername)
+Jika Anda memiliki pertanyaan atau saran, silakan hubungi pengembang di:
+- Email: andiarya@gmail.com
+- GitHub: [@andiarya](https://github.com/andiarya)
+- LinkedIn: [Andi Arya Galang](https://linkedin.com/in/andiarya)
 
 ---
 ⭐ Jangan lupa beri bintang jika Anda menyukai proyek ini!
