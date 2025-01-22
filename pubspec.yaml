@@ -92,3 +92,8 @@ flutter:
     - assets/images/mie_goreng.jpg
     - assets/images/sate_ayam.jpg
     - assets/images/gado_gado.jpg
+    - assets/screenshots/
+    - assets/screenshots/home.png
+    - assets/screenshots/favorites.png
+    - assets/screenshots/cart.png
+    - assets/screenshots/profile.png

@@ -60,8 +60,8 @@ lib/
 
 2. **Clone Repository**
    ```bash
-   git clone https://github.com/username/food_shop.git
-   cd food_shop
+   git clone https://github.com/Galang0304/FOOD_SHOP.git
+   cd FOOD_SHOP
    ```
 
 3. **Install Dependencies**
@@ -99,7 +99,7 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 
 ## 👨‍💻 Pengembang
 
-- **Andi Arya Galang** - *Initial work* - [GitHub Profile](https://github.com/andiarya)
+- **Andi Arya Galang** - *Initial work* - [Galang0304](https://github.com/Galang0304)
 
 ## 🙏 Pengakuan
 
@@ -110,9 +110,9 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 ## 📞 Kontak
 
 Jika Anda memiliki pertanyaan atau saran, silakan hubungi pengembang di:
-- Email: andiarya@gmail.com
-- GitHub: [@andiarya](https://github.com/andiarya)
-- LinkedIn: [Andi Arya Galang](https://linkedin.com/in/andiarya)
+- Email: andiariegalang0@gmail.com
+- GitHub: [@Galang0304](https://github.com/Galang0304)
+- LinkedIn: [Andi Arya Galang](https://www.linkedin.com/in/andi-arya-galang-482906347/)
 
 ---
 ⭐ Jangan lupa beri bintang jika Anda menyukai proyek ini!
